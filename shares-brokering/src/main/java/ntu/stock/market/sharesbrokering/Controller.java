@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 	
-	private ShareRepo repo;
+	@Autowired
+	private StockQoutsProxy stockQoutsProxy;
 	
 	@Autowired
 	CurrencyConversionProxy currencyConversioproxy;
@@ -22,15 +23,11 @@ public class Controller {
 	@Autowired
 	UserSharesProxy userSharesProxy;
 	
-	public Controller(ShareRepo repo) {
-		this.repo=repo;
-	}
-	
 	@GetMapping("/shares-brokering/currency/{currency}")
 	public List<Share> getShares(@PathVariable String currency){
 		
 		
-		List<Share> shares= repo.findAll();
+		List<Share> shares=stockQoutsProxy.getShares();
 		
 		List<UserShare> userShares= userSharesProxy.getUserShares(1);
 		
@@ -41,9 +38,9 @@ public class Controller {
 			UserShare uShare=userShares.stream().filter(userShare->userShare.getShareSymbol().equals(share.getSymbol())).findFirst().orElse(null);
 			
 			if(uShare!=null) {
-				share.setSharesCount(uShare.getShareCount());
+				share.setUserSharesCount(uShare.getShareCount());
 				double value=Math.round((share.getPrice()*uShare.getShareCount()*100.0))/100.0;
-				share.setSharesValue(value);
+				share.setUserSharesValue(value);
 			}
 			
 		}
