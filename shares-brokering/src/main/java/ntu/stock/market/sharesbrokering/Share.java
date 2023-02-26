@@ -1,23 +1,20 @@
 package ntu.stock.market.sharesbrokering;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import java.time.LocalDateTime;
 
-
-@Entity
 public class Share {
 	
-	@Id
+
 	private String symbol;
 	private String name;
 	private double price;
+	private LocalDateTime lastUpdatedDate;
+	private int availableShares;
+
+	private int userSharesCount;
 	
-	@Transient 
-	private int sharesCount;
 	
-	@Transient
-	private double sharesValue;
+	private double userSharesValue;
 	
 	public String getSymbol() {
 		return symbol;
@@ -37,17 +34,31 @@ public class Share {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getSharesCount() {
-		return sharesCount;
+
+	
+	public LocalDateTime getLastUpdatedDate() {
+		return lastUpdatedDate;
 	}
-	public void setSharesCount(int sharesCount) {
-		this.sharesCount = sharesCount;
+	public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+		this.lastUpdatedDate = lastUpdatedDate;
 	}
-	public double getSharesValue() {
-		return sharesValue;
+	public int getAvailableShares() {
+		return availableShares;
 	}
-	public void setSharesValue(double sharesValue) {
-		this.sharesValue = sharesValue;
+	public void setAvailableShares(int availableShares) {
+		this.availableShares = availableShares;
+	}
+	public int getUserSharesCount() {
+		return userSharesCount;
+	}
+	public void setUserSharesCount(int userSharesCount) {
+		this.userSharesCount = userSharesCount;
+	}
+	public double getUserSharesValue() {
+		return userSharesValue;
+	}
+	public void setUserSharesValue(double userSharesValue) {
+		this.userSharesValue = userSharesValue;
 	}
 	
 	

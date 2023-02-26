@@ -1,9 +1,9 @@
-package ntu.stock.market.currencyconversion;
+package ntushares.rates.chronejob.entity;
 
 
 public class Currency {
 	
-	
+
 	private String symbol;
 	private double rate;
 	private String name;
@@ -25,5 +25,4 @@ public class Currency {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

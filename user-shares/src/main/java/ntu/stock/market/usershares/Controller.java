@@ -21,6 +21,7 @@ public class Controller {
 	@GetMapping("/user-shares/userId/{userId}")
 	public List<UserShare> getUserShares(@PathVariable int userId){
 		
+		
 		return repo.findByUserId(userId);
 	}
 
