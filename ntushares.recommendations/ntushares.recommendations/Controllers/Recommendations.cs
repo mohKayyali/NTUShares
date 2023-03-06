@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration.Json;
 
 using System.Text.Json;
 using System.Runtime.Serialization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ntushares.recommendations.Controllers
 {
@@ -18,10 +19,7 @@ namespace ntushares.recommendations.Controllers
     
     public class Recommendations : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        
 
         private readonly ILogger<Recommendations> _logger;
 
@@ -29,7 +27,7 @@ namespace ntushares.recommendations.Controllers
         {
             _logger = logger;
         }
-
+        
         [HttpGet]
         public Recommendation Get(string symbol)
         {
@@ -46,7 +44,7 @@ namespace ntushares.recommendations.Controllers
                 output = sr.ReadToEnd();
                 sr.Close();
             }
-           // string test= @"{""buy"":26,""hold"":8,""period"":""2023 - 03 - 01"",""sell"":1}";
+           
             var recList=JsonSerializer.Deserialize<List<Recommendation>>(output);
 
             Recommendation result=new Recommendation();

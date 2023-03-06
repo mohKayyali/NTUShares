@@ -530,11 +530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mohammadkayyali/Projects/ntushares.recommendations/ntushares.recommendations/ntushares.recommendations.csproj",
+      "projectUniqueName": "/Users/mohammadkayyali/Documents/cloud-lab/ntushares.recommendations/ntushares.recommendations/ntushares.recommendations.csproj",
       "projectName": "ntushares.recommendations",
-      "projectPath": "/Users/mohammadkayyali/Projects/ntushares.recommendations/ntushares.recommendations/ntushares.recommendations.csproj",
+      "projectPath": "/Users/mohammadkayyali/Documents/cloud-lab/ntushares.recommendations/ntushares.recommendations/ntushares.recommendations.csproj",
       "packagesPath": "/Users/mohammadkayyali/.nuget/packages/",
-      "outputPath": "/Users/mohammadkayyali/Projects/ntushares.recommendations/ntushares.recommendations/obj/",
+      "outputPath": "/Users/mohammadkayyali/Documents/cloud-lab/ntushares.recommendations/ntushares.recommendations/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mohammadkayyali/.nuget/NuGet/NuGet.Config"

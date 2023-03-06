@@ -12,5 +12,7 @@ public interface UserSharesProxy {
 	
 	@GetMapping("/user-shares/userId/{userId}")
 	public List<UserShare> getUserShares(@PathVariable int userId);
+	
+	
 
 }
