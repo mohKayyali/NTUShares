@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name="stock-quote",url="localhost:6002")
+@FeignClient(name="stock-quote",url="${STOCK_QOUTE_URI:http://localhost}:6002")
 public interface StockQuoteProxy {
 	
 	@PutMapping("/stock-quote/change-availability/operation/{operation}/count/{count}/symbol/{symbol}")

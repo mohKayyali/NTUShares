@@ -5,17 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.2</version>
+		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ntu.stock.market</groupId>
 	<artifactId>currency-conversion</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.16-SNAPSHOT</version>
 	<name>currency-conversion</name>
 	<description>Converts currency</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>18</java.version>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
+		<maven.compiler.release>18</maven.compiler.release>
 	</properties>
 	<dependencies>
 		
@@ -56,9 +57,25 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				<source>61</source>
+				<target>61</target>
+					<release>61</release>
+				</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+
+						<image>
+							<name>mkayyalidocer2021/${project.artifactId}:${project.version}</name>
+						</image>
+						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					</configuration>
+				</plugin>
 		</plugins>
 	</build>
 

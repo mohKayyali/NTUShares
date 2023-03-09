@@ -2,6 +2,8 @@ package ntushares.rates.chronejob;
 
 import java.util.List;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import feign.Feign;
 import feign.gson.GsonDecoder;
@@ -16,8 +18,8 @@ import ntushares.rates.chronejob.proxy.StockRateApiProxy;
 class FetchCurrencyRatesTask extends TimerTask {
 
 	private static final String API_PATH = "https://api.currencybeacon.com/v1/latest?api_key=dd6a9907061d3d8a6dcabdcfe7f5f03d&base=gbp&symbols=EUR,GBP,INR,JOD,JPY,SAR,USD";
-	private static final String API_PATHCurrencyRates = "http://localhost:6011/exchange-rate";
-	private static final String API_PATH_STOCK_QUOTE = "http://localhost:6002/stock-quote";
+	private static final String API_PATHCurrencyRates = "http://localhost:6001/shares-brokering/currency-rates";
+	private static final String API_PATH_STOCK_QUOTE = "http://localhost:6001/shares-brokering/stock-quote";
 	private static final String API_PATH_STOCK_API = "https://finnhub.io/api/v1";
 
 	@Override
@@ -58,7 +60,7 @@ class FetchCurrencyRatesTask extends TimerTask {
 			}
 		} catch (Exception ex) {
 
-			System.out.println(ex.getMessage());
+			Logger.getLogger("Logging").log(Level.SEVERE, ex.getMessage());
 
 		}
 
@@ -82,7 +84,7 @@ class FetchCurrencyRatesTask extends TimerTask {
 
 		} catch (Exception ex) {
 
-			System.out.println(ex.getMessage());
+			Logger.getLogger("Logging").log(Level.SEVERE, ex.getMessage());
 
 		}
 	}

@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  ntushares.recommendations:
+    image: mkayyalidocer2021/ntushares-recommendations:V1
+    ports:
+          - 5023:80
+    build:
+       <<: *build-dev
+       x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
+      context: .
+      dockerfile: ntushares.recommendations/Dockerfile

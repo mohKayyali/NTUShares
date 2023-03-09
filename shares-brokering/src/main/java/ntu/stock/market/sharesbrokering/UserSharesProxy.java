@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-@FeignClient(name="user-shares", url="localhost:6003")
+@FeignClient(name="user-shares", url="${USER_SHARES_URI:http://localhost}:6003")
 public interface UserSharesProxy {
 	
 	@GetMapping("/user-shares/userId/{userId}")

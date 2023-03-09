@@ -9,7 +9,7 @@ import feign.RequestLine;
 public interface ExchangeRatesProxy {
 	
 	
-	@RequestLine("GET /currency/{symbol}/{rate}")
+	@RequestLine("GET /symbol/{symbol}/rate/{rate}")
 	public boolean updateRate(@Param("symbol") String symbol,@Param("rate") double rate );
 	
 	@RequestLine("GET {currency}")
