@@ -31,28 +31,37 @@ namespace ntushares.recommendations.Controllers
         [HttpGet]
         public Recommendation Get(string symbol)
         {
-            string uri = String.Format( "http://finnhub.io/api/v1/stock/recommendation?symbol={0}&token=cfsch6pr01qgkckhcsa0cfsch6pr01qgkckhcsag", symbol);
-            
-            WebRequest req = WebRequest.Create(uri); 
-            req.Method = "GET";
-            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-
-            string output;
-            using (Stream stream= res.GetResponseStream()) {
-
-                StreamReader sr = new StreamReader(stream);
-                output = sr.ReadToEnd();
-                sr.Close();
-            }
-           
-            var recList=JsonSerializer.Deserialize<List<Recommendation>>(output);
-
-            Recommendation result=new Recommendation();
-            foreach (var rec in recList)
+            Recommendation result = new Recommendation();
+            try
             {
-                if (result.period == null || rec.period > result.period)
-                    result = rec;
+                string uri = String.Format("http://finnhub.io/api/v1/stock/recommendation?symbol={0}&token=cfsch6pr01qgkckhcsa0cfsch6pr01qgkckhcsag", symbol);
 
+                WebRequest req = WebRequest.Create(uri);
+                req.Method = "GET";
+                HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+
+                string output;
+                using (Stream stream = res.GetResponseStream())
+                {
+
+                    StreamReader sr = new StreamReader(stream);
+                    output = sr.ReadToEnd();
+                    sr.Close();
+                }
+
+                var recList = JsonSerializer.Deserialize<List<Recommendation>>(output);
+
+                
+                foreach (var rec in recList)
+                {
+                    if (result.period == null || rec.period > result.period)
+                        result = rec;
+
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
             }
 
                 return result;

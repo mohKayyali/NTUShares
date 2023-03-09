@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>ntu.stock.market</groupId>
 	<artifactId>stock-quote</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.12-SNAPSHOT</version>
 	<name>stock-quote</name>
 	<description>Retrieves the stock quote</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,9 +46,25 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				<source>61</source>
+				<target>61</target>
+					<release>61</release>
+				</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+
+						<image>
+							<name>mkayyalidocer2021/${project.artifactId}:${project.version}</name>
+						</image>
+						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					</configuration>
+				</plugin>
 		</plugins>
 	</build>
 
