@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{1315C219-2DC2-4016-A064-F286E2CB8226}|Default">
+﻿<Properties StartupConfiguration="{84745D5C-C38A-4C61-A810-A0A04D671F89}|Default">
   <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.ItemProperties.ntushares.recommendations PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -29,7 +29,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
 </Properties>
