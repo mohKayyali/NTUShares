@@ -18,8 +18,8 @@ import ntushares.rates.chronejob.proxy.StockRateApiProxy;
 class FetchCurrencyRatesTask extends TimerTask {
 
 	private static final String API_PATH = "https://api.currencybeacon.com/v1/latest?api_key=dd6a9907061d3d8a6dcabdcfe7f5f03d&base=gbp&symbols=EUR,GBP,INR,JOD,JPY,SAR,USD";
-	private static final String API_PATHCurrencyRates = "http://localhost:6001/shares-brokering/currency-rates";
-	private static final String API_PATH_STOCK_QUOTE = "http://localhost:6001/shares-brokering/stock-quote";
+	private static final String API_PATHCurrencyRates = "http://20.108.199.132:6001/shares-brokering/currency-rates";
+	private static final String API_PATH_STOCK_QUOTE = "http://20.108.199.132:6001/shares-brokering/stock-quote";
 	private static final String API_PATH_STOCK_API = "https://finnhub.io/api/v1";
 
 	@Override
